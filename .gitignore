@@ -6,4 +6,5 @@ outputs/*.csv
 outputs/*.json
 outputs/*.log
 !outputs/sample_emails_log.csv
+/docs
 

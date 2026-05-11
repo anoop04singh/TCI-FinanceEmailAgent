@@ -26,7 +26,9 @@ The agent runs daily at 9:00 AM IST and performs this flow:
 | `data/audit_log_headers.csv` | Audit sheet headers |
 | `src/credit_followup_agent.py` | Local dry-run simulator for demo and validation |
 | `outputs/sample_emails_log.csv` | Sample output required for submission |
-| `docs/presentation_deck_outline.md` | 8-10 slide presentation outline |
+| `docs/demo_video_transcript.md` | 3-5 minute demo video narration |
+| `docs/presentation_deck_content.md` | Final 9-slide deck content |
+| `docs/presentation_deck_outline.md` | Short deck outline |
 | `docs/prompt_iteration_log.md` | Prompt design notes and iterations |
 
 ## Quick Start
@@ -63,7 +65,7 @@ The local runner writes `outputs/sample_emails_log.csv`. It uses deterministic t
 
 | Disclosure | Decision |
 |---|---|
-| LLM chosen | Gemini 2.0 Flash through n8n's Google Gemini Chat Model node |
+| LLM chosen | Gemini 2.5 Flash through n8n's Google Gemini Chat Model node |
 | LLM rationale | Low cost, fast latency, strong enough tone control for short finance emails, and native n8n LangChain integration with Structured Output Parser. GPT-4o and Claude Sonnet were considered; they are stronger for complex reasoning but costlier for this narrow structured batch email task. |
 | Agent framework | n8n v1.x workflow automation with AI Agent, Gemini Chat Model, and Structured Output Parser |
 | Architecture | Event-driven pipeline with deterministic routing plus one controlled AI drafting step per chunk. The AI node does not control Sheets, SMTP, legal routing, or audit logging. |
@@ -122,6 +124,7 @@ Return only a valid JSON object matching the required schema. The output object 
 Validation guardrails:
 
 - Structured Output Parser requires `{ "results": [...] }`.
+- The final parser schema is intentionally compatible with n8n/Gemini parser behavior; stricter constraints are enforced in the validation Code node.
 - Batch result count must equal the original chunk size.
 - Each result is matched back to `_originals` by `invoice_no`, with positional fallback.
 - Required fields are `invoice_no`, `subject`, `body`, `stage`, `tone`, `action`, and `confidence`.

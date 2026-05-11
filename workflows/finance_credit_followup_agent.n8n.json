@@ -433,7 +433,7 @@
     },
     {
       "parameters": {
-        "modelName": "models/gemini-2.0-flash",
+        "modelName": "models/gemini-2.5-flash",
         "options": {}
       },
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
@@ -454,7 +454,7 @@
     {
       "parameters": {
         "schemaType": "manual",
-        "inputSchema": "{\n  \"type\": \"object\",\n  \"additionalProperties\": false,\n  \"required\": [\"results\"],\n  \"properties\": {\n    \"results\": {\n      \"type\": \"array\",\n      \"description\": \"One entry per invoice, in the same order as the input batch.\",\n      \"items\": {\n        \"type\": \"object\",\n        \"additionalProperties\": false,\n        \"required\": [\"invoice_no\", \"subject\", \"body\", \"stage\", \"tone\", \"action\", \"confidence\"],\n        \"properties\": {\n          \"invoice_no\": {\n            \"type\": \"string\",\n            \"description\": \"Exact invoice number from the input — used to match this result back to the original record.\"\n          },\n          \"subject\": {\n            \"type\": \"string\",\n            \"description\": \"Email subject line. Must include the invoice number.\"\n          },\n          \"body\": {\n            \"type\": \"string\",\n            \"description\": \"Plain text email body containing all mandatory facts.\"\n          },\n          \"stage\": {\n            \"type\": \"integer\",\n            \"minimum\": 1,\n            \"maximum\": 4,\n            \"description\": \"Must match the stage value from the input invoice exactly.\"\n          },\n          \"tone\": {\n            \"type\": \"string\",\n            \"enum\": [\"Warm and Friendly\", \"Polite but Firm\", \"Formal and Serious\", \"Stern and Urgent\"]\n          },\n          \"action\": {\n            \"type\": \"string\",\n            \"enum\": [\"DRAFT_EMAIL\"]\n          },\n          \"confidence\": {\n            \"type\": \"number\",\n            \"minimum\": 0,\n            \"maximum\": 1\n          }\n        }\n      }\n    }\n  }\n}"
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"required\": [\n    \"results\"\n  ],\n  \"properties\": {\n    \"results\": {\n      \"type\": \"array\",\n      \"description\": \"One entry per invoice, in the same order as the input batch.\",\n      \"items\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"invoice_no\",\n          \"subject\",\n          \"body\",\n          \"stage\",\n          \"tone\",\n          \"action\",\n          \"confidence\"\n        ],\n        \"properties\": {\n          \"invoice_no\": {\n            \"type\": \"string\",\n            \"description\": \"Exact invoice number from the input — used to match this result back to the original record.\"\n          },\n          \"subject\": {\n            \"type\": \"string\",\n            \"description\": \"Email subject line. Must include the invoice number.\"\n          },\n          \"body\": {\n            \"type\": \"string\",\n            \"description\": \"Plain text email body containing all mandatory facts.\"\n          },\n          \"stage\": {\n            \"type\": \"integer\",\n            \"description\": \"Stage number 1-4 matching the input invoice. Validated by downstream code.\"\n          },\n          \"tone\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"Warm and Friendly\",\n              \"Polite but Firm\",\n              \"Formal and Serious\",\n              \"Stern and Urgent\"\n            ]\n          },\n          \"action\": {\n            \"type\": \"string\",\n            \"description\": \"Always DRAFT_EMAIL for stages 1-4. Validated by downstream code.\"\n          },\n          \"confidence\": {\n            \"type\": \"number\",\n            \"description\": \"Certainty score 0.0-1.0. Must be >= 0.85 or the item is rejected.\"\n          }\n        }\n      }\n    }\n  }\n}"
       },
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
@@ -998,6 +998,6 @@
     "executionOrder": "v1",
     "binaryMode": "separate"
   },
-  "versionId": "submission-optimized-v2",
+  "versionId": "submission-optimized-v2-parser-fixed",
   "tags": []
 }

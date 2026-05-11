@@ -10,7 +10,7 @@ Use:
 - `Has Invoices?` IF node to skip AI when there are no Stage 1-4 invoices.
 - `Split Into Chunks` Code node with `CHUNK_SIZE = 10`.
 - AI Agent node.
-- Google Gemini Chat Model sub-node using `models/gemini-2.0-flash`.
+- Google Gemini Chat Model sub-node using `models/gemini-2.5-flash`.
 - Structured Output Parser sub-node.
 - `Parse and Validate LLM Output` Code node after AI.
 - No memory.
@@ -58,12 +58,11 @@ The output object must contain a results array with exactly one entry per invoic
 
 ## Structured Output Parser Schema
 
-The final schema wraps outputs in a `results` array:
+The final parser-fixed schema wraps outputs in a `results` array. It intentionally avoids over-strict root-level `additionalProperties` and stage/action enums because some n8n + Gemini parser combinations rejected the stricter schema. The downstream validator still enforces stage range, stage parity, action expectations, required facts, and confidence.
 
 ```json
 {
   "type": "object",
-  "additionalProperties": false,
   "required": ["results"],
   "properties": {
     "results": {
@@ -71,7 +70,6 @@ The final schema wraps outputs in a `results` array:
       "description": "One entry per invoice, in the same order as the input batch.",
       "items": {
         "type": "object",
-        "additionalProperties": false,
         "required": [
           "invoice_no",
           "subject",
@@ -84,7 +82,7 @@ The final schema wraps outputs in a `results` array:
         "properties": {
           "invoice_no": {
             "type": "string",
-            "description": "Exact invoice number from the input."
+            "description": "Exact invoice number from the input - used to match this result back to the original record."
           },
           "subject": {
             "type": "string",
@@ -96,8 +94,7 @@ The final schema wraps outputs in a `results` array:
           },
           "stage": {
             "type": "integer",
-            "minimum": 1,
-            "maximum": 4
+            "description": "Stage number 1-4 matching the input invoice. Validated by downstream code."
           },
           "tone": {
             "type": "string",
@@ -110,12 +107,11 @@ The final schema wraps outputs in a `results` array:
           },
           "action": {
             "type": "string",
-            "enum": ["DRAFT_EMAIL"]
+            "description": "Always DRAFT_EMAIL for stages 1-4. Validated by downstream code."
           },
           "confidence": {
             "type": "number",
-            "minimum": 0,
-            "maximum": 1
+            "description": "Certainty score 0.0-1.0. Must be >= 0.85 or the item is rejected."
           }
         }
       }

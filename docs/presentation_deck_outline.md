@@ -1,5 +1,7 @@
 # Presentation Deck Outline
 
+For final slide copy, use `docs/presentation_deck_content.md`. This file is a shorter outline.
+
 ## Slide 1: Title
 
 Finance Credit Follow-Up Email Agent  
@@ -29,7 +31,7 @@ Stage 5: 30+ days or four follow-ups, human review.
 
 ## Slide 6: LLM and Framework Choices
 
-Gemini 2.0 Flash for low-cost batch JSON email generation.  
+Gemini 2.5 Flash for low-cost batch JSON email generation.  
 n8n for visual orchestration, credential management, scheduling, Google Sheets, SMTP, structured parsing, chunking, and auditability.
 
 ## Slide 7: Security Controls

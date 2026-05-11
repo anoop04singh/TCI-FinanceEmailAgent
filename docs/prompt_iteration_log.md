@@ -72,3 +72,12 @@ Final design changes:
 - Updated `Update Invoice Record` to write `stage` and `days_overdue` back to the sheet.
 
 This is the version implemented in `workflows/finance_credit_followup_agent.n8n.json`.
+
+## Iteration 7: parser-compatible schema
+
+The latest final workflow keeps the same optimized v2 architecture but fixes the Structured Output Parser issue by using a parser-compatible schema:
+
+- Root object requires `results`.
+- Each result requires `invoice_no`, `subject`, `body`, `stage`, `tone`, `action`, and `confidence`.
+- Strict constraints that caused parser failures are moved into the validation Code node.
+- The validator still enforces stage range, stage parity, action behavior, confidence threshold, invoice matching, and mandatory facts.
