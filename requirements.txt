@@ -1,0 +1,2 @@
+# The n8n workflow is the primary automation and does not require Python packages.
+# The local dry-run simulator uses only Python standard library modules.

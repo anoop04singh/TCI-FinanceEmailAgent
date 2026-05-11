@@ -1,0 +1,24 @@
+timestamp,invoice_no,client_name,client_email,amount_due,days_overdue,stage,tone_used,email_subject,send_status,dry_run
+2026-05-11T06:29:57Z,INV-2026-001,Rajesh Kapoor,anoopsingh.work@outlook.com,45000.0,5,1,Warm and Friendly,Friendly Reminder - INV-2026-001 (5 days overdue),DRY_RUN,true
+2026-05-11T06:29:57Z,INV-2026-002,Sneha Iyer,anoopsingh.work@outlook.com,128000.0,12,2,Polite but Firm,Payment Pending - INV-2026-002 (12 days overdue),DRY_RUN,true
+2026-05-11T06:29:57Z,INV-2026-003,Mohit Sharma,anoopsingh.work@outlook.com,75500.0,18,3,Formal and Serious,IMPORTANT: Outstanding Payment - INV-2026-003 (18 days overdue),DRY_RUN,true
+2026-05-11T06:29:57Z,INV-2026-004,Priya Nair,anoopsingh.work@outlook.com,210000.0,28,4,Stern and Urgent,FINAL NOTICE - INV-2026-004 (28 days overdue),DRY_RUN,true
+2026-05-11T06:29:57Z,INV-2026-005,Arjun Mehta,anoopsingh.work@outlook.com,33000.0,35,5,Manual legal review,LEGAL_REVIEW_REQUIRED,LEGAL_FLAGGED,true
+2026-05-11T06:29:57Z,INV-2026-007,Vikram Singh,anoopsingh.work@outlook.com,62000.0,2,1,Warm and Friendly,Friendly Reminder - INV-2026-007 (2 days overdue),DRY_RUN,true
+2026-05-11T06:29:57Z,INV-2026-008,Ananya Patel,anoopsingh.work@outlook.com,95500.0,4,1,Warm and Friendly,Friendly Reminder - INV-2026-008 (4 days overdue),DRY_RUN,true
+2026-05-11T06:29:57Z,INV-2026-009,Rohan Desai,anoopsingh.work@outlook.com,28000.0,6,1,Warm and Friendly,Friendly Reminder - INV-2026-009 (6 days overdue),DRY_RUN,true
+2026-05-11T06:29:57Z,INV-2026-010,Meera Krishnan,anoopsingh.work@outlook.com,175000.0,8,2,Polite but Firm,Payment Pending - INV-2026-010 (8 days overdue),DRY_RUN,true
+2026-05-11T06:29:57Z,INV-2026-011,Deepak Gupta,anoopsingh.work@outlook.com,43500.0,10,2,Polite but Firm,Payment Pending - INV-2026-011 (10 days overdue),DRY_RUN,true
+2026-05-11T06:29:57Z,INV-2026-012,Sunita Rajan,anoopsingh.work@outlook.com,118000.0,13,2,Polite but Firm,Payment Pending - INV-2026-012 (13 days overdue),DRY_RUN,true
+2026-05-11T06:29:57Z,INV-2026-013,Aditya Kumar,anoopsingh.work@outlook.com,250000.0,14,2,Polite but Firm,Payment Pending - INV-2026-013 (14 days overdue),DRY_RUN,true
+2026-05-11T06:29:57Z,INV-2026-014,Pooja Agarwal,anoopsingh.work@outlook.com,67000.0,17,3,Formal and Serious,IMPORTANT: Outstanding Payment - INV-2026-014 (17 days overdue),DRY_RUN,true
+2026-05-11T06:29:57Z,INV-2026-015,Ramesh Pillai,anoopsingh.work@outlook.com,320000.0,20,3,Formal and Serious,IMPORTANT: Outstanding Payment - INV-2026-015 (20 days overdue),DRY_RUN,true
+2026-05-11T06:29:57Z,INV-2026-016,Neha Saxena,anoopsingh.work@outlook.com,88500.0,22,4,Stern and Urgent,FINAL NOTICE - INV-2026-016 (22 days overdue),DRY_RUN,true
+2026-05-11T06:29:57Z,INV-2026-017,Kartik Malhotra,anoopsingh.work@outlook.com,156000.0,25,4,Stern and Urgent,FINAL NOTICE - INV-2026-017 (25 days overdue),DRY_RUN,true
+2026-05-11T06:29:57Z,INV-2026-018,Divya Menon,anoopsingh.work@outlook.com,42000.0,27,4,Stern and Urgent,FINAL NOTICE - INV-2026-018 (27 days overdue),DRY_RUN,true
+2026-05-11T06:29:57Z,INV-2026-019,Suresh Rao,anoopsingh.work@outlook.com,195000.0,31,5,Manual legal review,LEGAL_REVIEW_REQUIRED,LEGAL_FLAGGED,true
+2026-05-11T06:29:57Z,INV-2026-020,Lalitha Chakraborty,anoopsingh.work@outlook.com,78000.0,24,5,Manual legal review,LEGAL_REVIEW_REQUIRED,LEGAL_FLAGGED,true
+2026-05-11T06:29:57Z,INV-2026-021,Amit Joshi,anoopsingh.work@outlook.com,54000.0,1,1,Warm and Friendly,Friendly Reminder - INV-2026-021 (1 days overdue),DRY_RUN,true
+2026-05-11T06:29:57Z,INV-2026-023,Shreya Bose,anoopsingh.work@outlook.com,139000.0,9,2,Polite but Firm,Payment Pending - INV-2026-023 (9 days overdue),DRY_RUN,true
+2026-05-11T06:29:57Z,INV-2026-024,Varun Nambiar,anoopsingh.work@outlook.com,92500.0,16,3,Formal and Serious,IMPORTANT: Outstanding Payment - INV-2026-024 (16 days overdue),DRY_RUN,true
+2026-05-11T06:29:57Z,INV-2026-025,Ritu Sharma,anoopsingh.work@outlook.com,185000.0,23,4,Stern and Urgent,FINAL NOTICE - INV-2026-025 (23 days overdue),DRY_RUN,true
