@@ -159,7 +159,7 @@ IMPORTANT: Outstanding Payment - INV-2026-003 (18 days overdue)
 
 Use this for a 3-5 minute recording:
 
-1. Show the Google Sheet with the 26-row sample data.
+1. Show the Google Sheet with six sample rows.
 2. Show n8n variables with `DRY_RUN=true`.
 3. Import or open the workflow and manually execute it.
 4. Show `Classify and Filter Records`: today-filter, stage calculation, four email records plus one legal branch.
