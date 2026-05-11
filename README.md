@@ -47,7 +47,7 @@ The agent runs daily at 9:00 AM IST and performs this flow:
 6. Create a Gemini credential for the `Google Gemini Chat Model` node.
 7. Import `workflows/finance_credit_followup_agent.n8n.json`.
 8. Replace every `REPLACE_WITH_GOOGLE_SHEET_ID` value with your Sheet ID and select the saved credentials.
-9. Execute manually in dry-run mode. Confirm 4 email log rows and 1 legal review flag.
+9. Execute manually in dry-run mode. Confirm Stage 1-4 email audit rows and Stage 5 legal review rows.
 10. Only after testing, set `DRY_RUN=false` and activate the daily schedule.
 
 ### Option B: local dry-run simulator
@@ -91,12 +91,10 @@ flowchart TD
     K --> L["Structured Output Parser: results array"]
     L --> M["Parse and validate by chunk + invoice_no"]
     M --> N{"DRY_RUN=true?"}
-    N -- Yes --> O["Skip send"]
+    N -- Yes --> O["Sheets: append Audit_Log"]
     N -- No --> P["SMTP: send client email"]
-    O --> Q["Merge audit inputs"]
-    P --> Q
-    Q --> R["Sheets: append Audit_Log"]
-    R --> S["Sheets: update follow_up_count, last_sent_date, stage, days_overdue"]
+    P --> O
+    O --> S["Sheets: update follow_up_count, last_sent_date, stage, days_overdue"]
 ```
 
 ## Stage Logic
@@ -149,11 +147,7 @@ Validation guardrails:
 
 ## Sample Output
 
-See `outputs/sample_emails_log.csv` for a required sample output. The included sample data produces:
-
-- 4 dry-run email audit rows for Stages 1-4.
-- 1 Stage 5 `LEGAL_FLAGGED` legal review row.
-- 1 paid invoice skipped.
+See `outputs/sample_emails_log.csv` for a required sample output. The current 26-row sample data produces Stage 1-4 dry-run email audit rows, Stage 5 `LEGAL_FLAGGED` rows, and skips paid or non-actionable invoices.
 
 Example Stage 3 subject:
 
@@ -165,7 +159,7 @@ IMPORTANT: Outstanding Payment - INV-2026-003 (18 days overdue)
 
 Use this for a 3-5 minute recording:
 
-1. Show the Google Sheet with six sample rows.
+1. Show the Google Sheet with the 26-row sample data.
 2. Show n8n variables with `DRY_RUN=true`.
 3. Import or open the workflow and manually execute it.
 4. Show `Classify and Filter Records`: today-filter, stage calculation, four email records plus one legal branch.

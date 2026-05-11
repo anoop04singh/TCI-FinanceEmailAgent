@@ -537,17 +537,6 @@
       }
     },
     {
-      "parameters": {},
-      "id": "a29a39c7-846e-4c07-ae40-107b7d385d00",
-      "name": "Merge Sent and Dry Run",
-      "type": "n8n-nodes-base.merge",
-      "typeVersion": 3,
-      "position": [
-        1728,
-        320
-      ]
-    },
-    {
       "parameters": {
         "operation": "append",
         "documentId": {
@@ -934,7 +923,7 @@
       "main": [
         [
           {
-            "node": "Merge Sent and Dry Run",
+            "node": "Append Audit_Log",
             "type": "main",
             "index": 0
           }
@@ -949,17 +938,6 @@
       ]
     },
     "Send Client Email": {
-      "main": [
-        [
-          {
-            "node": "Merge Sent and Dry Run",
-            "type": "main",
-            "index": 1
-          }
-        ]
-      ]
-    },
-    "Merge Sent and Dry Run": {
       "main": [
         [
           {
@@ -998,6 +976,6 @@
     "executionOrder": "v1",
     "binaryMode": "separate"
   },
-  "versionId": "submission-optimized-v2-parser-fixed",
+  "versionId": "submission-optimized-v2-no-merge",
   "tags": []
 }

@@ -150,7 +150,8 @@ Classify and Filter Records
 -> AI Agent + Gemini Chat Model + Structured Output Parser
 -> Parse and Validate LLM Output
 -> Dry Run?
--> Send/Skip
+   -> true: Append Audit_Log
+   -> false: Send Client Email -> Append Audit_Log
 -> Append Audit_Log
 -> Update Invoice Record
 ```
