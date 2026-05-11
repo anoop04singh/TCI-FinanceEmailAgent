@@ -161,21 +161,6 @@ Example Stage 3 subject:
 IMPORTANT: Outstanding Payment - INV-2026-003 (18 days overdue)
 ```
 
-## Demo Script
-
-Use this for a 3-5 minute recording:
-
-1. Show the Google Sheet with six sample rows.
-2. Show n8n variables with `DRY_RUN=true`.
-3. Import or open the workflow and manually execute it.
-4. Show `Classify and Filter Records`: today-filter, stage calculation, four email records plus one legal branch.
-5. Show `Aggregate to Batch`, `Has Invoices?`, and `Split Into Chunks`.
-6. Show AI Agent output as `{ results: [...] }`.
-7. Show `Parse and Validate LLM Output` matching by chunk and `invoice_no`.
-8. Show no SMTP call on dry-run branch.
-9. Show `Audit_Log` rows and the invoice updates for `stage` and `days_overdue`.
-10. Explain the security mitigations from this README.
-
 ## Deliverables Checklist
 
 | Deliverable | Status |
